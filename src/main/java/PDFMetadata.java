@@ -1,3 +1,24 @@
+/*
+ * Copyright (c) 2020. Michael Penhallegon <mike@hematite.tech>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *
+ */
+
+/**
+ * @author Michael Penhallegon <mike@hematite.tech>
+ */
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
 
@@ -6,6 +27,13 @@ import java.nio.file.*;
 import java.nio.file.attribute.FileTime;
 import java.util.*;
 
+/**
+ * PDF Metadata Class to load and hold data about a PDF file
+ * 
+ * PDF Metadata Class hold the data and metadata of a PDF file.
+ * It has two constructors, one that take a string and another a
+ * Path object
+ */
 public class PDFMetadata extends AbstractPDFMetadata{
     private final Path doc_path;
     private PDDocument doc;
@@ -15,11 +43,26 @@ public class PDFMetadata extends AbstractPDFMetadata{
     private PDDocumentInformation pdd;
     public Map<String, String> doc_metadata;
 
+    /**
+     * Filename string constructor
+     * 
+     * Constructor that take a string to open a PDF file.
+     *
+     * @param fn filename
+     *
+     */
     public PDFMetadata (String fn){
         doc_path = Paths.get(fn);
         populate();
     }
-
+    
+    /**
+     * Path constructor
+     *
+     * Constructor that take a java.nio.file.Path object
+     *
+     * @param file_path path to filename
+     */
     public PDFMetadata(Path file_path) {
         doc_path = file_path;
         populate();
