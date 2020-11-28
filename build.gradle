@@ -1,0 +1,26 @@
+plugins {
+    id 'groovy'
+    id 'java'
+}
+
+group 'tech.hematite'
+version '0.1.9001-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+dependencies {
+    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+    /* implementation 'org.fasterxml.jackson.core:jackson-core:2.11.3'
+    implementation 'org.fasterxml.jackson.core:jackson-databind:2.11.3'
+    implementation 'org.fasterxml.jackson.core:jackson-annotations:2.11.3'
+    implementation 'org.jetbrains:annotations:19.0.0'
+    */
+    compile group: 'org.apache.pdfbox', name: 'pdfbox', version: '2.0.21'
+    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
+}
