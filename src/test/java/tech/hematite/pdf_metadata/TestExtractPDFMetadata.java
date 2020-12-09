@@ -16,6 +16,7 @@
  *
  */
 
+package tech.hematite.pdf_metadata;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
