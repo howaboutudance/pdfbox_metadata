@@ -16,6 +16,7 @@
  *
  */
 
+package tech.hematite.pdf_metadata;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;

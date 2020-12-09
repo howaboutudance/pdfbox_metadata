@@ -19,6 +19,7 @@
 /**
  * @author Michael Penhallegon <mike@hematite.tech>
  */
+package tech.hematite.pdf_metadata;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
 

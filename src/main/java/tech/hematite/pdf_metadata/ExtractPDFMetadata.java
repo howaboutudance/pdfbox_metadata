@@ -15,9 +15,10 @@
  *
  *
  */
-
-public class ExtractPDFMEtadata {
+package tech.hematite.pdf_metadata;
+public class ExtractPDFMetadata {
     public static void main(String[] args) {
+        System.out.println(args[0]);
         PDFMetadata doc = new PDFMetadata(args[0]);
         System.out.println(doc.doc_metadata);
     }
