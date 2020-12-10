@@ -7,6 +7,8 @@ plugins {
 group 'tech.hematite.pdf_metadata'
 version '0.1.9001-SNAPSHOT'
 
+def IMAGE_NAME = 'hematite/pdfbox_metadata'
+
 application {
     mainClassName = 'tech.hematite.pdf_metadata.ExtractPDFMetadata'
 }
@@ -25,4 +27,21 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+task buildContainer(type: Exec) {
+    def ociEngine = "docker"
+    def resultPodman = exec{
+        def command = "command -v podman"
+        ignoreExitValue = true
+        executable 'bash'
+        args '-l', '-c', command
+    }
+    if(resultPodman.getExitValue() == 0){
+        ociEngine = "podman"
+    }
+    workingDir './'
+    executable ociEngine
+    args 'build', '--file', 'Dockerfile',
+        '-t', IMAGE_NAME
 }
